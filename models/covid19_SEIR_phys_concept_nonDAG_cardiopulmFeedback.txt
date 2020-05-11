@@ -1,0 +1,123 @@
+dag {
+"Card Meds" [pos="-1.046,-0.991"]
+"Cardiac Capacity" [latent,pos="-0.979,-0.858"]
+"Cardiac Comorbidities" [pos="-1.203,-0.968"]
+"Cardiac Output" [pos="-0.485,-0.792"]
+"Clotting Meds" [adjusted,pos="-1.084,-0.800"]
+"Duration of Exposure" [latent,pos="-1.571,-0.348"]
+"FiO2/OxyDevice" [adjusted,pos="-0.817,-0.516"]
+"Frequency of Exposure" [latent,pos="-1.576,-0.826"]
+"Hb Capacity" [latent,pos="-0.944,-0.416"]
+"Hb Comorbidit" [pos="-1.166,-0.334"]
+"Hb Meds" [pos="-1.061,-0.333"]
+"Heart Rate" [adjusted,pos="-0.844,-0.821"]
+"Housing Density" [latent,pos="-1.824,-0.591"]
+"Neutralizing Antibodies" [latent,pos="-1.566,-0.540"]
+"Oxygen Delivery" [latent,pos="-0.304,-0.652"]
+"Pulm Comorbidities" [pos="-1.180,-0.605"]
+"Pulm Meds" [pos="-1.077,-0.575"]
+"Pulmonary Capacity" [latent,pos="-0.965,-0.647"]
+"Receptor Expression" [adjusted,pos="-1.325,-0.778"]
+"Resp Rate" [pos="-0.824,-0.635"]
+"SaO2 (O2 binding)" [adjusted,pos="-0.462,-0.570"]
+"Stroke Volume" [adjusted,pos="-0.847,-0.893"]
+"Tidal Volume" [pos="-0.826,-0.683"]
+"Viral Load" [latent,pos="-1.424,-0.609"]
+Age [adjusted,pos="-2.096,-0.723"]
+Azithromycin [adjusted,pos="-1.173,-0.213"]
+Clotting [adjusted,pos="-0.974,-0.754"]
+DNR [adjusted,pos="-1.180,-0.511"]
+Death [outcome,pos="-0.094,-0.675"]
+Diffusion [pos="-0.822,-0.575"]
+HQ [adjusted,pos="-1.448,-0.213"]
+Hgb [adjusted,pos="-0.640,-0.456"]
+Immunopathology [adjusted,pos="-1.323,-0.487"]
+Occupation [latent,pos="-1.837,-0.923"]
+PaO2 [adjusted,pos="-0.640,-0.593"]
+Perfusion [pos="-0.760,-0.756"]
+Resources [latent,pos="-2.099,-0.396"]
+Sex [adjusted,pos="-2.097,-0.796"]
+Tocilizumab [exposure,pos="-1.310,-0.214"]
+Transit [latent,pos="-1.813,-0.239"]
+"Card Meds" -> "Cardiac Capacity"
+"Cardiac Capacity" -> "Heart Rate"
+"Cardiac Capacity" -> "Stroke Volume"
+"Cardiac Comorbidities" -> "Card Meds"
+"Cardiac Comorbidities" -> "Cardiac Capacity"
+"Cardiac Comorbidities" -> "Clotting Meds"
+"Cardiac Output" -> "Oxygen Delivery"
+"Clotting Meds" -> Clotting
+"Clotting Meds" -> Hgb
+"Duration of Exposure" -> "Viral Load"
+"FiO2/OxyDevice" -> PaO2
+"Frequency of Exposure" -> "Viral Load"
+"Hb Capacity" -> Hgb
+"Hb Comorbidit" -> "Hb Capacity"
+"Hb Comorbidit" -> "Hb Meds"
+"Hb Meds" -> "Hb Capacity"
+"Heart Rate" -> "Cardiac Output"
+"Heart Rate" -> Perfusion
+"Housing Density" -> "Duration of Exposure"
+"Housing Density" -> "Frequency of Exposure"
+"Neutralizing Antibodies" -> "Viral Load"
+"Oxygen Delivery" -> "Heart Rate"
+"Oxygen Delivery" -> "Resp Rate"
+"Oxygen Delivery" -> "Stroke Volume"
+"Oxygen Delivery" -> "Tidal Volume"
+"Oxygen Delivery" -> Death
+"Pulm Comorbidities" -> "Pulm Meds"
+"Pulm Comorbidities" -> "Pulmonary Capacity"
+"Pulm Meds" -> "Pulmonary Capacity"
+"Pulmonary Capacity" -> "Resp Rate"
+"Pulmonary Capacity" -> "Tidal Volume"
+"Pulmonary Capacity" -> Diffusion
+"Receptor Expression" -> "Cardiac Capacity"
+"Receptor Expression" -> "Hb Capacity"
+"Receptor Expression" -> "Pulmonary Capacity"
+"Resp Rate" -> PaO2
+"SaO2 (O2 binding)" -> "Oxygen Delivery"
+"Stroke Volume" -> "Cardiac Output"
+"Stroke Volume" -> Perfusion
+"Tidal Volume" -> PaO2
+"Viral Load" -> "Receptor Expression"
+"Viral Load" -> Clotting
+"Viral Load" -> Immunopathology
+Age -> "Cardiac Comorbidities"
+Age -> "Hb Comorbidit"
+Age -> "Housing Density"
+Age -> "Pulm Comorbidities"
+Age -> "Receptor Expression"
+Age -> DNR
+Age -> Occupation
+Age -> Resources
+Age -> Transit
+Azithromycin -> "Cardiac Capacity"
+Azithromycin -> Immunopathology
+Clotting -> "Cardiac Capacity"
+Clotting -> "Oxygen Delivery"
+Clotting -> "Pulmonary Capacity"
+DNR -> "FiO2/OxyDevice"
+Diffusion -> PaO2
+HQ -> "Cardiac Capacity"
+HQ -> Immunopathology
+Hgb -> "SaO2 (O2 binding)"
+Immunopathology -> "Cardiac Capacity"
+Immunopathology -> "Hb Capacity"
+Immunopathology -> "Pulmonary Capacity"
+Occupation -> "Duration of Exposure"
+Occupation -> "Frequency of Exposure"
+Occupation <-> Resources
+PaO2 -> "Oxygen Delivery"
+PaO2 -> "SaO2 (O2 binding)"
+Perfusion -> PaO2
+Resources -> "Housing Density"
+Resources -> Transit
+Sex -> "Cardiac Comorbidities"
+Sex -> "Hb Comorbidit"
+Sex -> "Pulm Comorbidities"
+Sex -> Immunopathology
+Sex -> Occupation
+Tocilizumab -> Immunopathology
+Transit -> "Duration of Exposure"
+Transit -> "Frequency of Exposure"
+}
