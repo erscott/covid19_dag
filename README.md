@@ -1,4 +1,4 @@
-# covid19_dag
+# Covid-19 DAG
 CoVid-19 Directed Acyclic Graphs
 
 ## All contributions welcome!
