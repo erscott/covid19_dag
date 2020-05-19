@@ -8,16 +8,17 @@ dag {
 "FiO2/OxyDevice" [pos="-0.810,-0.450"]
 "Frequency of Exposure" [latent,pos="-1.576,-0.826"]
 "Hb Capacity" [latent,pos="-0.843,-0.689"]
-"Hb Comorbidit" [pos="-1.144,-0.665"]
-"Hb Meds" [pos="-1.049,-0.651"]
+"Hb Comorbidit" [pos="-1.173,-0.655"]
+"Hb Meds" [pos="-1.018,-0.649"]
 "Heart Rate" [pos="-0.755,-0.801"]
 "Housing Density" [latent,pos="-1.824,-0.591"]
 "Neutralizing Antibodies" [latent,pos="-1.566,-0.540"]
 "Oxygen Delivery" [latent,pos="-0.304,-0.652"]
-"Pulm Comorbidities" [adjusted,pos="-1.125,-0.541"]
+"Pulm Comorbidities" [adjusted,pos="-1.153,-0.543"]
 "Pulm Meds" [pos="-1.046,-0.504"]
 "Pulmonary Capacity" [latent,pos="-0.963,-0.548"]
 "Receptor Expression" [pos="-1.325,-0.778"]
+"Renal Capacity" [adjusted,pos="-1.155,-0.317"]
 "Resp Rate" [pos="-0.826,-0.575"]
 "SaO2 (O2 binding)" [adjusted,pos="-0.462,-0.570"]
 "Stroke Volume" [pos="-0.752,-0.854"]
@@ -25,7 +26,7 @@ dag {
 "Viral Load" [adjusted,pos="-1.424,-0.609"]
 Age [adjusted,pos="-2.096,-0.723"]
 Azithromycin [pos="-0.561,-0.893"]
-Clotting [pos="-0.978,-0.750"]
+Clotting [adjusted,pos="-0.978,-0.750"]
 DNR [adjusted,pos="-1.258,-0.853"]
 Death [outcome,pos="-0.094,-0.675"]
 Diffusion [pos="-0.821,-0.519"]
@@ -33,11 +34,11 @@ HQ [pos="-0.866,-0.987"]
 Hgb [adjusted,pos="-0.755,-0.747"]
 Immunopathology [adjusted,pos="-1.323,-0.487"]
 Occupation [latent,pos="-1.837,-0.923"]
-PaO2 [adjusted,pos="-0.662,-0.585"]
+PaO2 [pos="-0.662,-0.585"]
 Perfusion [pos="-0.664,-0.688"]
 Resources [adjusted,pos="-2.058,-0.414"]
 Sex [adjusted,pos="-2.097,-0.796"]
-Tocilizumab [exposure,pos="-0.660,-0.348"]
+Tocilizumab [exposure,pos="-0.784,-0.296"]
 Transit [latent,pos="-1.813,-0.239"]
 "Card Meds" -> "Cardiac Capacity"
 "Cardiac Capacity" -> "Heart Rate"
@@ -45,7 +46,10 @@ Transit [latent,pos="-1.813,-0.239"]
 "Cardiac Comorbidities" -> "Card Meds"
 "Cardiac Comorbidities" -> "Cardiac Capacity"
 "Cardiac Comorbidities" -> "Clotting Meds"
+"Cardiac Comorbidities" -> "Renal Capacity"
+"Cardiac Comorbidities" -> Tocilizumab
 "Cardiac Output" -> "Oxygen Delivery"
+"Cardiac Output" -> "Renal Capacity"
 "Clotting Meds" -> Clotting
 "Clotting Meds" -> Hgb
 "Duration of Exposure" -> "Viral Load"
@@ -63,6 +67,7 @@ Transit [latent,pos="-1.813,-0.239"]
 "Oxygen Delivery" -> Death
 "Pulm Comorbidities" -> "Pulm Meds"
 "Pulm Comorbidities" -> "Pulmonary Capacity"
+"Pulm Comorbidities" -> Tocilizumab
 "Pulm Meds" -> "Pulmonary Capacity"
 "Pulmonary Capacity" -> "Resp Rate"
 "Pulmonary Capacity" -> "Tidal Volume"
@@ -70,6 +75,8 @@ Transit [latent,pos="-1.813,-0.239"]
 "Receptor Expression" -> "Cardiac Capacity"
 "Receptor Expression" -> "Hb Capacity"
 "Receptor Expression" -> "Pulmonary Capacity"
+"Renal Capacity" -> Death
+"Renal Capacity" -> Tocilizumab
 "Resp Rate" -> PaO2
 "SaO2 (O2 binding)" -> "Oxygen Delivery"
 "SaO2 (O2 binding)" -> Azithromycin
@@ -89,15 +96,19 @@ Age -> "Hb Comorbidit"
 Age -> "Housing Density"
 Age -> "Pulm Comorbidities"
 Age -> "Receptor Expression"
+Age -> "Renal Capacity"
 Age -> DNR
 Age -> Occupation
 Age -> Resources
+Age -> Tocilizumab
 Age -> Transit
 Azithromycin -> "Cardiac Capacity"
 Clotting -> "Cardiac Capacity"
 Clotting -> "Pulmonary Capacity"
+Clotting -> Tocilizumab
 DNR -> "FiO2/OxyDevice"
 DNR -> Death
+DNR -> Tocilizumab
 Diffusion -> PaO2
 HQ -> "Cardiac Capacity"
 Hgb -> Perfusion
@@ -108,21 +119,22 @@ Immunopathology -> Tocilizumab
 Occupation -> "Duration of Exposure"
 Occupation -> "Frequency of Exposure"
 Occupation -> Resources
-PaO2 -> "Oxygen Delivery"
 PaO2 -> "SaO2 (O2 binding)"
-PaO2 -> Tocilizumab
 Perfusion -> "SaO2 (O2 binding)"
 Resources -> "Cardiac Comorbidities"
 Resources -> "Hb Comorbidit"
 Resources -> "Housing Density"
 Resources -> "Pulm Comorbidities"
+Resources -> "Renal Capacity"
 Resources -> Tocilizumab
 Resources -> Transit
 Sex -> "Cardiac Comorbidities"
 Sex -> "Hb Comorbidit"
 Sex -> "Pulm Comorbidities"
+Sex -> "Renal Capacity"
 Sex -> Immunopathology
 Sex -> Occupation
+Sex -> Tocilizumab
 Tocilizumab -> Death
 Transit -> "Duration of Exposure"
 Transit -> "Frequency of Exposure"
