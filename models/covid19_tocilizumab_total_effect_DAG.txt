@@ -37,7 +37,7 @@ PaO2 [adjusted,pos="-0.662,-0.585"]
 Perfusion [pos="-0.664,-0.688"]
 Resources [adjusted,pos="-2.058,-0.414"]
 Sex [adjusted,pos="-2.097,-0.796"]
-Tocilizumab [pos="-0.660,-0.348"]
+Tocilizumab [exposure,pos="-0.660,-0.348"]
 Transit [latent,pos="-1.813,-0.239"]
 "Card Meds" -> "Cardiac Capacity"
 "Cardiac Capacity" -> "Heart Rate"
@@ -123,6 +123,7 @@ Sex -> "Hb Comorbidit"
 Sex -> "Pulm Comorbidities"
 Sex -> Immunopathology
 Sex -> Occupation
+Tocilizumab -> Death
 Transit -> "Duration of Exposure"
 Transit -> "Frequency of Exposure"
 }
