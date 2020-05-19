@@ -4,7 +4,7 @@ CoVid-19 Directed Acyclic Graphs
 ## All contributions welcome!
 
 ### Current Collaborators
-Dr. Eleanor Murray @EpiEllie https://www.bu.edu/sph/profile/eleanor-murray/
+Dr. Eleanor Murray @EpiEllie https://www.bu.edu/sph/profile/eleanor-murray/  
 Dr. Stephanie Factor https://www.mountsinai.org/profiles/stephanie-h-factor
 
 DAG models can be found in the models folder, and the text can be pasted into DAGitty.net to visualize and refine.
