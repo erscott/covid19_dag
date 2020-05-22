@@ -1,0 +1,94 @@
+dag {
+bb="-0.5,-0.5,0.5,0.5"
+"Cardiac capacity" [latent,pos="0.013,0.123"]
+"Current Smoker" [adjusted,pos="-0.366,0.175"]
+"Pulm Capacity" [latent,pos="0.002,-0.065"]
+"Renal Capacity" [latent,pos="-0.010,-0.246"]
+"qSOFA<1" [adjusted,pos="0.057,-0.207"]
+ACEi [adjusted,pos="-0.095,0.195"]
+AGE [adjusted,pos="-0.452,-0.149"]
+ARB [adjusted,pos="-0.103,0.038"]
+AZ [exposure,pos="0.230,0.097"]
+Arrythmia [adjusted,pos="-0.199,-0.144"]
+Arrythmia2 [pos="0.336,-0.065"]
+BMI [adjusted,pos="-0.336,-0.342"]
+CAD [adjusted,pos="-0.201,0.173"]
+CHF [adjusted,pos="-0.199,0.042"]
+COPD [adjusted,pos="-0.204,-0.289"]
+Covid [adjusted,pos="-0.152,-0.363"]
+DM [adjusted,pos="-0.212,-0.370"]
+Death [outcome,pos="0.464,-0.096"]
+HCQ [exposure,pos="0.218,-0.164"]
+HTN [adjusted,pos="-0.258,0.285"]
+Immunocomp [adjusted,pos="-0.212,-0.456"]
+RACE [adjusted,pos="-0.455,-0.023"]
+SPO2 [adjusted,pos="0.107,-0.086"]
+Statin [adjusted,pos="-0.111,-0.140"]
+"Cardiac capacity" -> "qSOFA<1"
+"Cardiac capacity" -> SPO2
+"Current Smoker" -> "Pulm Capacity"
+"Current Smoker" -> Arrythmia
+"Current Smoker" -> CAD
+"Current Smoker" -> CHF
+"Current Smoker" -> COPD
+"Current Smoker" -> HTN
+"Current Smoker" -> Statin
+"Pulm Capacity" -> SPO2
+"Renal Capacity" -> "qSOFA<1"
+"qSOFA<1" -> AZ
+"qSOFA<1" -> HCQ
+ACEi -> "Cardiac capacity"
+AGE -> "Current Smoker"
+AGE -> "Pulm Capacity"
+AGE -> Arrythmia
+AGE -> BMI
+AGE -> CAD
+AGE -> CHF
+AGE -> COPD
+AGE -> Covid
+AGE -> DM
+AGE -> HTN
+ARB -> "Cardiac capacity"
+AZ -> Arrythmia2
+Arrythmia -> "Cardiac capacity"
+Arrythmia -> AZ
+Arrythmia -> Arrythmia2
+Arrythmia -> HCQ
+Arrythmia2 -> Death
+BMI -> "Pulm Capacity"
+BMI -> DM
+BMI -> Statin
+CAD -> "Cardiac capacity"
+CAD -> ACEi
+CAD -> Arrythmia2
+CAD -> CHF
+CHF -> "Cardiac capacity"
+CHF -> Arrythmia
+CHF -> Arrythmia2
+CHF -> Statin
+COPD -> "Pulm Capacity"
+COPD -> Arrythmia2
+Covid -> "Cardiac capacity"
+Covid -> "Pulm Capacity"
+Covid -> "Renal Capacity"
+Covid -> AZ
+Covid -> HCQ
+DM -> "Renal Capacity"
+DM -> Immunocomp
+DM -> Statin
+HCQ -> Arrythmia2
+HTN -> ACEi
+HTN -> Arrythmia
+HTN -> CAD
+HTN -> CHF
+Immunocomp -> Death
+RACE -> "Current Smoker"
+RACE -> ACEi
+RACE -> ARB
+RACE -> BMI
+SPO2 -> "qSOFA<1"
+SPO2 -> AZ
+SPO2 -> HCQ
+Statin -> "Cardiac capacity"
+Statin -> Death
+}
