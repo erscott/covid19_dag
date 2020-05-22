@@ -1,0 +1,137 @@
+dag {
+bb="-0.5,-0.5,0.5,0.5"
+"Card Capacity" [latent,pos="-0.035,0.011"]
+"Current Smoker" [adjusted,pos="-0.455,-0.018"]
+"Renal Capacity" [latent,pos="-0.026,0.175"]
+"Resp Capacity" [latent,pos="-0.061,-0.468"]
+"qSOFA<1" [adjusted,pos="0.153,-0.407"]
+ACEi [adjusted,pos="-0.116,0.228"]
+AGE [adjusted,pos="-0.452,-0.149"]
+ARB [adjusted,pos="-0.107,0.100"]
+AZ [exposure,pos="0.334,0.261"]
+Arrythmia [adjusted,pos="-0.206,-0.079"]
+BMI [adjusted,pos="-0.321,-0.272"]
+CAD [adjusted,pos="-0.191,0.199"]
+CHF [adjusted,pos="-0.199,0.042"]
+COPD [adjusted,pos="-0.293,-0.411"]
+Covid [adjusted,pos="-0.134,-0.297"]
+DM [adjusted,pos="-0.218,-0.246"]
+Death [outcome,pos="0.453,-0.073"]
+HCQ [exposure,pos="0.336,-0.261"]
+HTN [adjusted,pos="-0.315,0.280"]
+Immunocomp [adjusted,pos="-0.212,-0.456"]
+MentalStatus [latent,pos="-0.059,-0.187"]
+RACE [adjusted,pos="-0.421,0.154"]
+SPO2 [adjusted,pos="0.004,-0.374"]
+Statin [adjusted,pos="-0.181,-0.163"]
+"Card Capacity" -> "qSOFA<1"
+"Current Smoker" -> Arrythmia
+"Current Smoker" -> CAD
+"Current Smoker" -> CHF
+"Current Smoker" -> COPD
+"Current Smoker" -> Death
+"Current Smoker" -> HTN
+"Current Smoker" -> MentalStatus
+"Current Smoker" -> Statin
+"Resp Capacity" -> "qSOFA<1"
+"Resp Capacity" -> SPO2
+"qSOFA<1" -> AZ
+"qSOFA<1" -> HCQ
+ACEi -> "Card Capacity"
+ACEi -> AZ
+ACEi -> Death
+ACEi -> HCQ
+AGE -> "Current Smoker"
+AGE -> "Renal Capacity"
+AGE -> AZ
+AGE -> Arrythmia
+AGE -> BMI
+AGE -> CAD
+AGE -> CHF
+AGE -> COPD
+AGE -> Covid
+AGE -> DM
+AGE -> Death
+AGE -> HCQ
+AGE -> HTN
+AGE -> MentalStatus
+ARB -> "Card Capacity"
+ARB -> AZ
+ARB -> Death
+ARB -> HCQ
+AZ -> Death
+Arrythmia -> "Card Capacity"
+Arrythmia -> AZ
+Arrythmia -> Death
+Arrythmia -> HCQ
+BMI -> "Renal Capacity"
+BMI -> "Resp Capacity"
+BMI -> AZ
+BMI -> DM
+BMI -> Death
+BMI -> HCQ
+BMI -> Statin
+CAD -> "Card Capacity"
+CAD -> "Renal Capacity"
+CAD -> ARB
+CAD -> AZ
+CAD -> CHF
+CAD -> Death
+CAD -> HCQ
+CHF -> "Card Capacity"
+CHF -> ACEi
+CHF -> ARB
+CHF -> AZ
+CHF -> Arrythmia
+CHF -> Death
+CHF -> HCQ
+CHF -> Statin
+COPD -> "Resp Capacity"
+COPD -> AZ
+COPD -> Death
+COPD -> HCQ
+COPD -> SPO2
+Covid -> "Resp Capacity"
+Covid -> AZ
+Covid -> Death
+Covid -> HCQ
+Covid -> SPO2
+DM -> "Renal Capacity"
+DM -> "Resp Capacity"
+DM -> AZ
+DM -> Death
+DM -> HCQ
+DM -> Immunocomp
+DM -> Statin
+HCQ -> Death
+HTN -> "Card Capacity"
+HTN -> "Renal Capacity"
+HTN -> ACEi
+HTN -> ARB
+HTN -> AZ
+HTN -> Arrythmia
+HTN -> CAD
+HTN -> CHF
+HTN -> Death
+HTN -> HCQ
+Immunocomp -> AZ
+Immunocomp -> Death
+Immunocomp -> HCQ
+MentalStatus -> "qSOFA<1"
+RACE -> "Current Smoker"
+RACE -> "Renal Capacity"
+RACE -> ACEi
+RACE -> ARB
+RACE -> AZ
+RACE -> BMI
+RACE -> Death
+RACE -> HCQ
+SPO2 -> "qSOFA<1"
+SPO2 -> AZ
+SPO2 -> Death
+SPO2 -> HCQ
+Statin -> "Card Capacity"
+Statin -> AZ
+Statin -> Death
+Statin -> HCQ
+}
